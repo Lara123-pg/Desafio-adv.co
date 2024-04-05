@@ -1,5 +1,9 @@
+import { Categories } from "./Screens/Categories/Categories";
+
 export function App() {
   return (
-    <div>Hello WOrld</div>
+    <div>
+      <Categories />
+    </div>
   )
 }
