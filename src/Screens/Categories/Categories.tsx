@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { OptionMenu } from '../../components/OptionMenu';
 import { Header, H1, Nav, Main, SectionMain, DivGrid, SpanGrid, DivGrid2, DivGrid3, DivGrid4, DivBox2, Flex1, DivBox3, DivBox4, Flex2, Flex4, DivBox5, Flex5, Info } from './CategoriesStyles';
-import { Box, Heading, Flex, Grid, GridItem, Button } from '@chakra-ui/react'
+import { Box, Heading, Flex, Grid, GridItem, Button, useBreakpointValue, useMediaQuery } from '@chakra-ui/react'
 
 import { motion, ResolvedValues } from 'framer-motion';
 
@@ -85,8 +85,10 @@ export function Categories() {
             document.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
-      
     
+    const isMobile = useBreakpointValue({ sm: true, md: false });
+    const [is500px] = useMediaQuery("(max-width: 500px)");
+  
     return (
         <div>
             <Box as="header" css={Header}>
@@ -110,7 +112,7 @@ export function Categories() {
                         onUpdate={handleUpdateXPos}
                     >
                         <OptionMenu icon={MagnifyingGlass} isFirstButton />
-                        <OptionMenu>Logo & identity</OptionMenu>
+                        <OptionMenu styleButton>Logo & identity</OptionMenu>
                         <OptionMenu>Web & app design</OptionMenu>
                         <OptionMenu>Business & advertising</OptionMenu>
                         <OptionMenu>Clothing & merchandise</OptionMenu>
@@ -127,8 +129,13 @@ export function Categories() {
             </Box>
 
             <Box as="main" css={Main}>
-                <Grid as="section" css={SectionMain} templateColumns="repeat(3, 2fr)" gap={4}>
-                    <Flex as="div" css={Flex1}>
+                <Grid 
+                    as="section" 
+                    css={SectionMain} 
+                    templateColumns="repeat(3, 2fr)" 
+                    gap={4}
+                >
+                    <Flex as="div" css={Flex1} flexDirection={isMobile ? "column" : "row"}>
                         <GridItem 
                             colSpan={3} 
                             css={DivGrid}
@@ -162,38 +169,45 @@ export function Categories() {
                                 </ul>
                             </Box>
                         </GridItem>
+                        
+                        <Flex>
+                            <GridItem 
+                                css={DivBox2} 
+                                onMouseOver = {() => setIconCard2(false)}
+                                onMouseOut = {() => setIconCard2(true)}
+                                
+                            style={{...(isMobile && { borderLeft: 0 })}}
+                            >
+                                <img src={iconCard2 ? icon2 : icon2Hover} alt="Logo design" />
+                                <div className="description2">
+                                    <Heading as="h2" size="md">Logo design</Heading>
+                                    <p>from US$299</p>
+                                </div>
+                                
+                                <p>An unforgettable logo crafted for your brand</p>
+                            </GridItem>
 
-                        <GridItem 
-                            css={DivBox2} 
-                            onMouseOver = {() => setIconCard2(false)}
-                            onMouseOut = {() => setIconCard2(true)}
-                        >
-                            <img src={iconCard2 ? icon2 : icon2Hover} alt="Logo design" />
-                            <div className="description2">
-                                <Heading as="h2" size="md">Logo design</Heading>
-                                <p>from US$299</p>
-                            </div>
-                            
-                            <p>An unforgettable logo crafted for your brand</p>
-                        </GridItem>
+                            <GridItem 
+                                css={DivBox3}
+                                onMouseOver = {() => setIconCard3(false)}
+                                onMouseOut = {() => setIconCard3(true)}
+                            >
+                                <img 
+                                    src={iconCard3 ? icon3 : icon3Hover}
+                                    alt="Business card"
+                                />
 
-                        <GridItem 
-                            css={DivBox3}
-                            onMouseOver = {() => setIconCard3(false)}
-                            onMouseOut = {() => setIconCard3(true)}
-                        >
-                            <img src={iconCard3 ? icon3 : icon3Hover} alt="Business card" />
+                                <div>
+                                    <Heading as="h2" size="md">Business card</Heading>
+                                    <p>from US$169</p>
+                                </div>
 
-                            <div>
-                                <Heading as="h2" size="md">Business card</Heading>
-                                <p>from US$169</p>
-                            </div>
-
-                            <p>A unique card designed to build connections</p>
-                        </GridItem>
+                                <p>A unique card designed to build connections</p>
+                            </GridItem>
+                        </Flex>
                     </Flex>
 
-                    <Flex css={Flex2}>
+                    <Flex css={Flex2} flexDirection={isMobile ? "column" : "row"}>
                         <GridItem 
                             colSpan={2} 
                             css={DivBox4}
@@ -201,7 +215,11 @@ export function Categories() {
                             onMouseOut = {() => setIconCard4(true)}
                         >
                             <div className="infos">
-                                <img src={iconCard4 ? icon4 : icon4Hover} alt="Logo & brand guid" />
+                                <img 
+                                    src={iconCard4 ? icon4 : icon4Hover} 
+                                    alt="Logo & brand guid" 
+                                    style={{...(isMobile && { height: '90px' })}}
+                                />
 
                                 <div className="description3">
                                     <Heading as="h2" size="md">Logo & brand guid</Heading>
@@ -214,7 +232,11 @@ export function Categories() {
                             </div>
 
                             <div className="options">
-                                <p>Extend your logo design into a real brand with matching fonts, colors and style</p>
+                                <p 
+                                    style={{...(isMobile && { flexWrap: 'wrap' })}}
+                                >
+                                    Extend your logo design into a real brand with matching fonts, colors and style
+                                </p>
 
                                 <ul>
                                     <li>Logo</li>
@@ -225,12 +247,17 @@ export function Categories() {
 
                         <GridItem 
                             css={DivBox4} 
-                            style={{ borderLeft: '1px solid #dad9d7' }}
                             onMouseOver = {() => setIconCard5(false)}
                             onMouseOut = {() => setIconCard5(true)}
+
+                            style={{...(isMobile ? { borderLeft: 0 } : { borderLeft: '1px solid #dad9d7'  })}}
                         >
                             <div className="infos">
-                                <img src={iconCard5 ? icon5 : icon5Hover} alt="Logo & business card" />
+                                <img 
+                                    src={iconCard5 ? icon5 : icon5Hover}
+                                    alt="Logo & business card" 
+                                    style={{...(isMobile && { height: '90px' })}}
+                                />
 
                                 <div className="description3">
                                     <Heading as="h2" size="md">Logo & business card</Heading>
@@ -252,12 +279,13 @@ export function Categories() {
                         </GridItem>
                     </Flex>
 
-                    <Flex css={Flex4}>
+                    <Flex css={Flex4} flexDirection={isMobile ? 'column' : 'row'}>
                         <GridItem 
                             colSpan={3} 
                             css={DivBox4}
                             onMouseOver = {() => setIconCard6(false)}
                             onMouseOut = {() => setIconCard6(true)}
+                            style={{...(isMobile && { paddingBottom: '40em' })}}
                         >
                             <div className="infos">
                                 <img src={iconCard6 ? icon6 : icon6Hover} alt="Logo & website" />
@@ -283,14 +311,23 @@ export function Categories() {
                             </div>
                         </GridItem>
                         
-                        <img className="image" src={image} alt="image of letters and fish" />
+                        <div style={{ ...(isMobile && { flexDirection: 'column' }) }}>
+                            <img 
+                                style={{...(isMobile && {  width: '100%', top:`${is500px ? '124em' : '123em'}`, right: '1em' })}} className="image" 
+                                src={image} 
+                                alt="image of letters and fish" 
+                            />
+
+
+                            <span style={{ alignSelf: "end" }}>by dalibor rych</span>
+                        </div>
                     </Flex>
 
                     <Flex css={Flex4}>
                         <GridItem 
                             colSpan={3} 
                             css={DivBox4}
-                            style={{ width: "99%" }}
+                            style={{ width: "88%", color: "#5B5B5B" }}
                             onMouseOver = {() => setIconCard7(false)}
                             onMouseOut = {() => setIconCard7(true)}
                         >
@@ -317,46 +354,45 @@ export function Categories() {
                                     <li>YouTube background</li>
                                 </ul>
                             </div>
-
-                            <span style={{ alignSelf: "end" }}>by dalibor rych</span>
                         </GridItem>
                     </Flex>
                     
-                    <Flex css={Flex5}>
-                        <GridItem 
-                            css={DivBox3} 
-                            style={{borderRight: "1px solid #dad9d7", paddingRight: "2em", paddingBottom: "1em"}}
+                    <Flex css={Flex5} flexDirection={isMobile ? "column" : "row"}>
+                        <Flex>
+                            <GridItem 
+                                css={DivBox3} 
+                                style={{borderRight: "1px solid #dad9d7", paddingRight: "2em", paddingBottom: "1em"}}
 
-                            onMouseOver = {() => setIconCard8(false)}
-                            onMouseOut = {() => setIconCard8(true)}
-                        >
-                            <img src={iconCard8 ? icon8 : icon8Hover} alt="Brand guide" />
+                                onMouseOver = {() => setIconCard8(false)}
+                                onMouseOut = {() => setIconCard8(true)}
+                            >
+                                <img src={iconCard8 ? icon8 : icon8Hover} alt="Brand guide" />
 
-                            <div>
-                                <Heading as="h2" size="md">Brand guide</Heading>
-                                <p>from US$299</p>
-                            </div>
+                                <div>
+                                    <Heading as="h2" size="md">Brand guide</Heading>
+                                    <p>from US$299</p>
+                                </div>
 
-                            <p>A comprehensive guide of your brand´s fonts, colors and style</p>
-                        </GridItem>
+                                <p>A comprehensive guide of your brand´s fonts, colors and style</p>
+                            </GridItem>
 
-                        <GridItem 
-                            css={DivBox3} 
-                            style={{borderRight: "1px solid #dad9d7", paddingRight: "2em", paddingBottom: "1em"}}
+                            <GridItem 
+                                css={DivBox3} 
+                                style={{...(isMobile ? { borderRight: 0 } : {borderRight: "1px solid #dad9d7", paddingRight: "2em", paddingBottom: "1em"})}}
+                                
+                                onMouseOver = {() => setIconCard9(false)}
+                                onMouseOut = {() => setIconCard9(true)}
+                            >
+                                <img src={iconCard9 ? icon9 : icon9Hover} alt="Stationery" />
 
-                            onMouseOver = {() => setIconCard9(false)}
-                            onMouseOut = {() => setIconCard9(true)}
-                        >
-                            <img src={iconCard9 ? icon9 : icon9Hover} alt="Stationery" />
+                                <div>
+                                    <Heading as="h2" size="md">Stationery</Heading>
+                                    <p>from US$199</p>
+                                </div>
 
-                            <div>
-                                <Heading as="h2" size="md">Stationery</Heading>
-                                <p>from US$199</p>
-                            </div>
-
-                            <p>Letterhead and envelopes that send your brand´s message</p>
-                        </GridItem>
-
+                                <p>Letterhead and envelopes that send your brand´s message</p>
+                            </GridItem>
+                        </Flex>
                         <GridItem 
                             colSpan={2} 
                             css={DivBox5}
@@ -379,18 +415,23 @@ export function Categories() {
                     </Flex>
                 </Grid>
 
-                <Box as="div" css={Info}>
-                    <Heading as="strong" size="lg">Find the right brand solution for you</Heading>
+                <Box as="div" css={Info} style={{...isMobile && { alignSelf: 'center'}}}>
+                    <Heading as="strong" size="lg" style={{...isMobile && {textAlign: 'center'}}}>Find the right brand solution for you</Heading>
 
-                    <div className="infos3">
+                    <div className="infos3" style={{...isMobile && {flexDirection: 'column', alignItems: 'center'}}}>
                         <div className="description5">
-                            <p>Answer a few simple questions about your business and we'll recommend a design solution that's right for you.</p>
+                            <p style={{ ...isMobile && { textAlign: 'center' }}}>Answer a few simple questions about your business and we'll recommend a design solution that's right for you.</p>
 
-                            <Button>Take the branding quiz</Button>
+                            <Button 
+                                fontSize={{ base: "10px", sm: "12px", md: "14px", lg: "16px" }} 
+                                style={{...isMobile && {alignSelf: 'center', marginBottom: '3em'}}}
+                            >
+                                Take the branding quiz
+                            </Button>
                         </div>
                         
-                        <div className="imageInfo">
-                            <p style={{ color: "#5B5A58" }}>Illustration by wildanya</p>
+                        <div className="imageInfo" style={{...isMobile && {flexDirection: 'column-reverse'}}}>
+                            <p style={{ color: "#5B5A58", textAlign: 'center' }}>Illustration by wildanya</p>
                             <img src={image2} alt="Girl viewing information screen" />
                         </div>
                     </div>

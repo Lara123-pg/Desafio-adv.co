@@ -1,6 +1,8 @@
 import { css } from "@emotion/react";
 import { theme } from '../../theme';
 
+import { useBreakpointValue } from '@chakra-ui/react'
+
 export const Header = () => {
   const headerStyles = {
     backgroundColor: theme.colors.brand.backgroundHeader,
@@ -8,10 +10,11 @@ export const Header = () => {
     display: "flex",
     flexDirection: "column",
     paddingTop: "2em",
-    paddingLeft: "14em",
     paddingBottom: "3em",
     gap: "1em"
   };
+
+  const paddingLeft = useBreakpointValue({ base: "1em", sm: "3em", md: "5em", lg: "12em", xl: "14em" });
 
   return css`
     background-color: ${headerStyles.backgroundColor};
@@ -19,13 +22,9 @@ export const Header = () => {
     display: ${headerStyles.display};
     flex-direction: ${headerStyles.flexDirection};
     padding-top: ${headerStyles.paddingTop};
-    padding-left: ${headerStyles.paddingLeft};
+    padding-left: ${paddingLeft};
     padding-bottom: ${headerStyles.paddingBottom};
     gap: ${headerStyles.gap};
-
-    @media screen and (max-width: 768px) {
-      padding-left: 5%; 
-    }
   `;
 };
 
@@ -82,17 +81,18 @@ export const Main = () => {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    paddingLeft: "14em",
     paddingTop: "3em",
     paddingBottom: "3em",
   };
+
+  const paddingLeft = useBreakpointValue({ base: "1em", sm: "3em", md: "5em", lg: "12em", xl: "14em" });
 
   return css`
     background-color: ${mainStyles.backgroundColor};
     width: ${mainStyles.width};
     display: ${mainStyles.display};
     flex-direction: ${mainStyles.flexDirection};
-    padding-left: ${mainStyles.paddingLeft};
+    padding-left: ${paddingLeft};
     padding-top: ${mainStyles.paddingTop};
     padding-bottom: ${mainStyles.paddingBottom};
   `
@@ -126,6 +126,7 @@ export const Flex1 = () => {
 
 export const DivGrid = () => {
   const gridStyles = {
+    width: "500px",
     display: "flex",
     flexDirection: "column",
     gap: "2em",
@@ -134,6 +135,7 @@ export const DivGrid = () => {
   }
 
   return css`
+    width: ${gridStyles.width};
     display: ${gridStyles.display};
     flex-direction: ${gridStyles.flexDirection};
     gap: ${gridStyles.gap};
@@ -153,10 +155,8 @@ export const DivGrid = () => {
       transform: scale(1.05,1.05)
       transition-duration: .3s;
 
-
       color: #01A1C1;
       cursor: pointer;
-
 
       z-index: 6;
     }
@@ -165,7 +165,7 @@ export const DivGrid = () => {
 
 export const SpanGrid = () => {
   const spanStyles = {
-    width: "25%",
+    width: "120px",
     display: "flex",
     justifyContent: "center",
     backgroundColor: theme.colors.brand.mainOptions,
@@ -208,6 +208,11 @@ export const DivGrid2 = () => {
     display: ${gridStyles.display};
     gap: ${gridStyles.gap};
 
+    img {
+      width: 20%;
+      height: 70px;
+    }
+
     div.description {
       flex-direction: column;
       display: flex;
@@ -232,10 +237,11 @@ export const DivGrid3 = () => {
     }
 
     span {
+      width: 100px;
       border: 1px solid #01A1C1;
       color: #01A1C1;
 
-      padding: 1px 10px;
+      padding: 1px 6px;
 
       font-size: 0.9rem;
     }
@@ -267,7 +273,7 @@ export const DivGrid4 = () => {
 
 export const DivBox2 = () => {
   const boxStyles = {
-    width: "20%",
+    width: "230px",
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
@@ -299,10 +305,8 @@ export const DivBox2 = () => {
       transform: scale(1.05,1.05)
       transition-duration: .3s;
 
-
       color: #01A1C1;
       cursor: pointer;
-
 
       z-index: 6;
     }
@@ -325,7 +329,7 @@ export const DivBox2 = () => {
 
 export const DivBox3 = () => {
   const boxStyles = {
-    width: "20%",
+    width: "230px",
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
@@ -357,10 +361,8 @@ export const DivBox3 = () => {
       transform: scale(1.05,1.05)
       transition-duration: .3s;
 
-
       color: #01A1C1;
       cursor: pointer;
-
 
       z-index: 6;
     }
@@ -389,7 +391,7 @@ export const Flex2 = () => {
 
 export const DivBox4 = () => {
   const boxStyles = {
-    width: "44.2%",
+    width: "500px",
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
@@ -423,10 +425,8 @@ export const DivBox4 = () => {
       transform: scale(1.05,1.05)
       transition-duration: .3s;
 
-
       color: #01A1C1;
       cursor: pointer;
-
 
       z-index: 6;
     }
@@ -448,6 +448,7 @@ export const DivBox4 = () => {
         color: #5B5A58;
 
         span {
+          width: 120px;
           color: #01A1C1;
           border: 1px solid #01A1C1;
 
@@ -482,15 +483,22 @@ export const Flex4 = () => {
     gap: "1em",
   }
 
+  const right = useBreakpointValue({ base: "0", sm: "-20em", md: "-15em", lg: "-10em", xl: "-2em" });
+
   return css`
     display: ${flexStyles.display};
     gap: ${flexStyles.gap};
 
+    div {
+      display: flex;
+
+    }
+  
     img.image {
       position: absolute;
 
-      right: 0;
-      top: 920px;
+      right: ${right};
+      top: 1000px;
       bottom: 0;
     }
   `
@@ -506,6 +514,7 @@ export const Flex5 = () => {
 
 export const DivBox5 = () => {
   const boxStyles = {
+    width: "500px",
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
@@ -513,6 +522,7 @@ export const DivBox5 = () => {
   }
 
   return css`
+    width: ${boxStyles.width};
     display: ${boxStyles.display};
     justify-content: ${boxStyles.justifyContent};
     flex-direction: ${boxStyles.flexDirection};
@@ -530,10 +540,8 @@ export const DivBox5 = () => {
       transform: scale(1.05,1.05)
       transition-duration: .3s;
 
-
       color: #01A1C1;
       cursor: pointer;
-
 
       z-index: 6;
     }
@@ -553,20 +561,27 @@ export const Info = () => {
     width: "80%",
     display: "flex",
     flexDirection: "column",
+    justifyContent: "space-around",
     gap: "1em",
     backgroundColor: theme.colors.brand.backgroundInfo,
     padding: "2em",
     borderRadius: "20px"
   }
+
+  const marginRight = useBreakpointValue({ base: "1em", sm: "3em", md: "5em", lg: "12em", xl: "2em" });
+
   return css`
     width: ${infoStyles.width};
+    justify-content: ${infoStyles.justifyContent};
     display: ${infoStyles.display};
     flex-direction: ${infoStyles.flexDirection};
     gap: ${infoStyles.gap};
     background-color: ${infoStyles.backgroundColor};
     padding: ${infoStyles.padding};
     border-radius: ${infoStyles.borderRadius};
+    margin-right: ${marginRight};
 
+    border: 1px solid #000;
     div.infos3 {
       display: flex;
       height: 100%;
@@ -592,7 +607,7 @@ export const Info = () => {
 
       border-radius: 20px;
 
-      padding: 10px 5px;
+      padding: 10px 8px;
     }
   `
 }
