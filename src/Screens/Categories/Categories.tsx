@@ -9,14 +9,32 @@ import { motion, ResolvedValues } from 'framer-motion';
 import { MagnifyingGlass, Star } from 'phosphor-react';
 
 import icon1 from '../../assets/icon1.png';
+import icon1Hover from '../../assets/icon1Hover.png';
+
 import icon2 from '../../assets/icon2.png';
+import icon2Hover from '../../assets/icon2Hover.png';
+
 import icon3 from '../../assets/icon3.png';
+import icon3Hover from '../../assets/icon3Hover.png';
+
 import icon4 from '../../assets/icon4.png';
+import icon4Hover from '../../assets/icon4Hover.png';
+
 import icon5 from '../../assets/icon5.png';
+import icon5Hover from '../../assets/icon5Hover.png';
+
 import icon6 from '../../assets/icon6.png';
+import icon6Hover from '../../assets/icon6Hover.png';
+
 import icon7 from '../../assets/icon7.png';
+import icon7Hover from '../../assets/icon7Hover.png';
+
 import icon8 from '../../assets/icon8.png';
+import icon8Hover from '../../assets/icon8Hover.png';
+
 import icon9 from '../../assets/icon9.png';
+import icon9Hover from '../../assets/icon9Hover.png';
+
 import image from '../../assets/image.png';
 import image2 from '../../assets/image2.png';
 
@@ -24,6 +42,17 @@ export function Categories() {
     const [isHovered, setIsHovered] = useState(false);
     const [xPos, setXPos] = useState<number>(0);
     const [lastXPos, setLastXPos] = useState<number>(0);
+
+    const [iconCard1, setIconCard1] = useState(true);
+    const [iconCard2, setIconCard2] = useState(true);
+    const [iconCard3, setIconCard3] = useState(true);
+    const [iconCard4, setIconCard4] = useState(true);
+    const [iconCard5, setIconCard5] = useState(true);
+    const [iconCard6, setIconCard6] = useState(true);
+    const [iconCard7, setIconCard7] = useState(true);
+    const [iconCard8, setIconCard8] = useState(true);
+    const [iconCard9, setIconCard9] = useState(true);
+    const [iconCard10, setIconCard10] = useState(true);
 
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -100,14 +129,19 @@ export function Categories() {
             <Box as="main" css={Main}>
                 <Grid as="section" css={SectionMain} templateColumns="repeat(3, 2fr)" gap={4}>
                     <Flex as="div" css={Flex1}>
-                        <GridItem colSpan={3} css={DivGrid}>
+                        <GridItem 
+                            colSpan={3} 
+                            css={DivGrid}
+                            onMouseOver = {() => setIconCard1(false)}
+                            onMouseOut = {() => setIconCard1(true)}
+                        >
                             <Box as="span" css={SpanGrid}>
-                                <Star size={20} color="#ffffff" weight="fill" />
+                                <Star size={16} color="#ffffff" weight="fill" />
                                 <p>Most popular</p>
                             </Box>
 
                             <Box as="div" css={DivGrid2}>
-                                <img src={icon1} alt="Logo & identity pack" />
+                                <img src={iconCard1 ? icon1 : icon1Hover} alt="Logo & identity pack" />
                                 <div className="description">
                                     <Heading as="h2" size="md">Logo & identity pack</Heading>
                                     <Box as="div" css={DivGrid3}>
@@ -129,8 +163,12 @@ export function Categories() {
                             </Box>
                         </GridItem>
 
-                        <GridItem css={DivBox2}>
-                            <img src={icon2} alt="Logo design" />
+                        <GridItem 
+                            css={DivBox2} 
+                            onMouseOver = {() => setIconCard2(false)}
+                            onMouseOut = {() => setIconCard2(true)}
+                        >
+                            <img src={iconCard2 ? icon2 : icon2Hover} alt="Logo design" />
                             <div className="description2">
                                 <Heading as="h2" size="md">Logo design</Heading>
                                 <p>from US$299</p>
@@ -139,8 +177,12 @@ export function Categories() {
                             <p>An unforgettable logo crafted for your brand</p>
                         </GridItem>
 
-                        <GridItem css={DivBox3}>
-                            <img src={icon3} alt="Business card" />
+                        <GridItem 
+                            css={DivBox3}
+                            onMouseOver = {() => setIconCard3(false)}
+                            onMouseOut = {() => setIconCard3(true)}
+                        >
+                            <img src={iconCard3 ? icon3 : icon3Hover} alt="Business card" />
 
                             <div>
                                 <Heading as="h2" size="md">Business card</Heading>
@@ -152,9 +194,14 @@ export function Categories() {
                     </Flex>
 
                     <Flex css={Flex2}>
-                        <GridItem colSpan={2} css={DivBox4}>
+                        <GridItem 
+                            colSpan={2} 
+                            css={DivBox4}
+                            onMouseOver = {() => setIconCard4(false)}
+                            onMouseOut = {() => setIconCard4(true)}
+                        >
                             <div className="infos">
-                                <img src={icon4} alt="Logo & brand guid" />
+                                <img src={iconCard4 ? icon4 : icon4Hover} alt="Logo & brand guid" />
 
                                 <div className="description3">
                                     <Heading as="h2" size="md">Logo & brand guid</Heading>
@@ -176,9 +223,14 @@ export function Categories() {
                             </div>
                         </GridItem>
 
-                        <GridItem css={DivBox4} style={{ borderLeft: '1px solid #dad9d7' }}>
+                        <GridItem 
+                            css={DivBox4} 
+                            style={{ borderLeft: '1px solid #dad9d7' }}
+                            onMouseOver = {() => setIconCard5(false)}
+                            onMouseOut = {() => setIconCard5(true)}
+                        >
                             <div className="infos">
-                                <img src={icon5} alt="Logo & business card" />
+                                <img src={iconCard5 ? icon5 : icon5Hover} alt="Logo & business card" />
 
                                 <div className="description3">
                                     <Heading as="h2" size="md">Logo & business card</Heading>
@@ -201,9 +253,14 @@ export function Categories() {
                     </Flex>
 
                     <Flex css={Flex4}>
-                        <GridItem colSpan={3} css={DivBox4}>
+                        <GridItem 
+                            colSpan={3} 
+                            css={DivBox4}
+                            onMouseOver = {() => setIconCard6(false)}
+                            onMouseOut = {() => setIconCard6(true)}
+                        >
                             <div className="infos">
-                                <img src={icon6} alt="Logo & website" />
+                                <img src={iconCard6 ? icon6 : icon6Hover} alt="Logo & website" />
 
                                 <div className="description3">
                                     <Heading as="h2" size="md">Logo & website</Heading>
@@ -230,9 +287,15 @@ export function Categories() {
                     </Flex>
 
                     <Flex css={Flex4}>
-                        <GridItem colSpan={3} css={DivBox4} style={{ width: "99%" }}>
+                        <GridItem 
+                            colSpan={3} 
+                            css={DivBox4}
+                            style={{ width: "99%" }}
+                            onMouseOver = {() => setIconCard7(false)}
+                            onMouseOut = {() => setIconCard7(true)}
+                        >
                             <div className="infos">
-                                <img src={icon7} alt="Logo & social media pack" />
+                                <img src={iconCard7 ? icon7 : icon7Hover} alt="Logo & social media pack" />
 
                                 <div className="description3">
                                     <Heading as="h2" size="md">Logo & social media pack</Heading>
@@ -260,8 +323,14 @@ export function Categories() {
                     </Flex>
                     
                     <Flex css={Flex5}>
-                        <GridItem css={DivBox3} style={{borderRight: "1px solid #dad9d7", paddingRight: "2em", paddingBottom: "1em"}}>
-                            <img src={icon8} alt="Brand guide" />
+                        <GridItem 
+                            css={DivBox3} 
+                            style={{borderRight: "1px solid #dad9d7", paddingRight: "2em", paddingBottom: "1em"}}
+
+                            onMouseOver = {() => setIconCard8(false)}
+                            onMouseOut = {() => setIconCard8(true)}
+                        >
+                            <img src={iconCard8 ? icon8 : icon8Hover} alt="Brand guide" />
 
                             <div>
                                 <Heading as="h2" size="md">Brand guide</Heading>
@@ -271,8 +340,14 @@ export function Categories() {
                             <p>A comprehensive guide of your brand´s fonts, colors and style</p>
                         </GridItem>
 
-                        <GridItem css={DivBox3} style={{borderRight: "1px solid #dad9d7", paddingRight: "2em", paddingBottom: "1em"}}>
-                            <img src={icon9} alt="Stationery" />
+                        <GridItem 
+                            css={DivBox3} 
+                            style={{borderRight: "1px solid #dad9d7", paddingRight: "2em", paddingBottom: "1em"}}
+
+                            onMouseOver = {() => setIconCard9(false)}
+                            onMouseOut = {() => setIconCard9(true)}
+                        >
+                            <img src={iconCard9 ? icon9 : icon9Hover} alt="Stationery" />
 
                             <div>
                                 <Heading as="h2" size="md">Stationery</Heading>
@@ -282,9 +357,16 @@ export function Categories() {
                             <p>Letterhead and envelopes that send your brand´s message</p>
                         </GridItem>
 
-                        <GridItem colSpan={2} css={DivBox5} style={{paddingLeft: "2em", borderBottom: "1px solid #dad9d7"}}>
+                        <GridItem 
+                            colSpan={2} 
+                            css={DivBox5}
+                            style={{paddingLeft: "2em", borderBottom: "1px solid #dad9d7"}}
+
+                            onMouseOver = {() => setIconCard10(false)}
+                            onMouseOut = {() => setIconCard10(true)}
+                        >
                             <div className="infos2">
-                                <img src={icon1} alt="Full-service Brand Pack" />
+                                <img src={iconCard10 ? icon1 : icon1Hover} alt="Full-service Brand Pack" />
 
                                 <div className="description4">
                                     <Heading as="h2" size="md">Full-service Brand Pack</Heading>

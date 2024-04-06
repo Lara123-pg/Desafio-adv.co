@@ -22,6 +22,10 @@ export const Header = () => {
     padding-left: ${headerStyles.paddingLeft};
     padding-bottom: ${headerStyles.paddingBottom};
     gap: ${headerStyles.gap};
+
+    @media screen and (max-width: 768px) {
+      padding-left: 5%; 
+    }
   `;
 };
 
@@ -136,37 +140,58 @@ export const DivGrid = () => {
     padding-right: ${gridStyles.paddingRight};
     padding-bottom: ${gridStyles.paddingBottom};
 
-    border-bottom: 1px solid #dad9d7;
+    border-bottom: 1px solid #dad9d7;    
+    transition: box-shadow 0.3s;
+
+    padding: 2em;
+
+    z-index: 1;
+
+    &:hover {
+      box-shadow: 0 7px 21px 0 rgba(0,0,0,.1);
+      -webkit-transform: scale(1.05,1.05);
+      transform: scale(1.05,1.05)
+      transition-duration: .3s;
+
+
+      color: #01A1C1;
+      cursor: pointer;
+
+
+      z-index: 6;
+    }
   `
 }
 
 export const SpanGrid = () => {
   const spanStyles = {
-    width: "35%",
+    width: "25%",
     display: "flex",
     justifyContent: "center",
-    gap: "0.9em",
     backgroundColor: theme.colors.brand.mainOptions,
-    padding: "0.2em",
+    padding: "0.3em",
     color: theme.colors.brand.backgroundMainText,
     borderRadius: "14px",
     borderLeft: "1px solid #dad9d7",
+    alignItems: "center",
+    gap: "0.1em",
   }
 
   return css`
     width: ${spanStyles.width};
     display: ${spanStyles.display};
     justify-content: ${spanStyles.justifyContent};
-    gap: ${spanStyles.gap};
     background-color: ${spanStyles.backgroundColor};
     padding: ${spanStyles.padding};
     color: ${spanStyles.color};
     border-radius: ${spanStyles.borderRadius};
     border-left: ${spanStyles.borderLeft};
+    align-items: ${spanStyles.alignItems};
+    gap: ${spanStyles.gap};
     align-self: start;
 
     p {
-      font-size: 0.9em;
+      font-size: 0.8em;
     }
   `
 }
@@ -228,6 +253,7 @@ export const DivGrid4 = () => {
     display: ${gridStyles.display};
     flex-direction: ${gridStyles.flexDirection};
     gap: ${gridStyles.gap};
+    color: #5B5A58;
 
     ul {
       li::before {
@@ -261,6 +287,26 @@ export const DivBox2 = () => {
     border-right: 1px solid #dad9d7;
     border-bottom: 1px solid #dad9d7;
 
+    transition: box-shadow 0.3s;
+
+    padding: 2em;
+
+    z-index: 1;
+
+    &:hover {
+      box-shadow: 0 7px 21px 0 rgba(0,0,0,.1);
+      -webkit-transform: scale(1.05,1.05);
+      transform: scale(1.05,1.05)
+      transition-duration: .3s;
+
+
+      color: #01A1C1;
+      cursor: pointer;
+
+
+      z-index: 6;
+    }
+
     img {
       width: 40%;
     }
@@ -284,7 +330,8 @@ export const DivBox3 = () => {
     justifyContent: "center",
     flexDirection: "column",
     gap: "1em",
-    paddingLeft: "2em"
+    paddingLeft: "2em",
+    paddingTop: "2em"
   }
 
   return css`
@@ -294,8 +341,29 @@ export const DivBox3 = () => {
     flex-direction: ${boxStyles.flexDirection};
     gap: ${boxStyles.gap};
     padding-left: ${boxStyles.paddingLeft};
+    padding-top: ${boxStyles.paddingTop};
 
     border-bottom: 1px solid #dad9d7;
+
+    transition: box-shadow 0.3s;
+
+    padding: 2em;
+
+    z-index: 1;
+
+    &:hover {
+      box-shadow: 0 7px 21px 0 rgba(0,0,0,.1);
+      -webkit-transform: scale(1.05,1.05);
+      transform: scale(1.05,1.05)
+      transition-duration: .3s;
+
+
+      color: #01A1C1;
+      cursor: pointer;
+
+
+      z-index: 6;
+    }
 
     img {
       width: 40%;
@@ -314,24 +382,19 @@ export const DivBox3 = () => {
 }
 
 export const Flex2 = () => {
-  const flexStyles = {
-    display: "flex",
-    gap: "1em",
-  }
-
   return css`
-    display: ${flexStyles.display};
+    margin-top: -15px;
   `
 }
 
 export const DivBox4 = () => {
   const boxStyles = {
-    width: "40.6%",
+    width: "44.2%",
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
     gap: "1em",
-    paddingLeft: "2em",
+    paddingLeft: "3em",
     paddingTop: "2em",
     position: "relative"
   }
@@ -347,6 +410,26 @@ export const DivBox4 = () => {
     position: ${boxStyles.position};
 
     border-bottom: 1px solid #dad9d7;
+
+    transition: box-shadow 0.3s;
+
+    padding: 3em;
+
+    z-index: 1;
+
+    &:hover {
+      box-shadow: 0 7px 21px 0 rgba(0,0,0,.1);
+      -webkit-transform: scale(1.05,1.05);
+      transform: scale(1.05,1.05)
+      transition-duration: .3s;
+
+
+      color: #01A1C1;
+      cursor: pointer;
+
+
+      z-index: 6;
+    }
 
     div.infos {
       display: flex;
@@ -415,9 +498,9 @@ export const Flex4 = () => {
 
 export const Flex5 = () => {
   return css`
-    borderm-bottom: 1px solid #dad9d7;
-
     padding-bottom: 2em;
+
+    margin-top: -15px;
   `
 }
 
@@ -434,6 +517,26 @@ export const DivBox5 = () => {
     justify-content: ${boxStyles.justifyContent};
     flex-direction: ${boxStyles.flexDirection};
     gap: ${boxStyles.gap};
+
+    transition: box-shadow 0.3s;
+
+    padding: 2em;
+
+    z-index: 1;
+
+    &:hover {
+      box-shadow: 0 7px 21px 0 rgba(0,0,0,.1);
+      -webkit-transform: scale(1.05,1.05);
+      transform: scale(1.05,1.05)
+      transition-duration: .3s;
+
+
+      color: #01A1C1;
+      cursor: pointer;
+
+
+      z-index: 6;
+    }
 
     div.infos2 {
       display: flex;
@@ -493,3 +596,4 @@ export const Info = () => {
     }
   `
 }
+
