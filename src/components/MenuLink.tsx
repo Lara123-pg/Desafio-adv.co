@@ -59,8 +59,10 @@ export function MenuLink() {
         `
     }
 
+    const [is950px] = useMediaQuery("(max-width: 950px)");
+
     return (
-        <Box as="div" className="menuR" css={Menu} style={{...isMenuFixed && { position: "fixed", top: "0", left: "0", backgroundColor: "#fff", padding: "2em", width: "70%", borderBottom: "0"}}} >
+        <Box as="div" className="menuR" css={Menu} style={{...isMenuFixed && !is950px && { position: "fixed", top: "0", left: "0", backgroundColor: "#fff", padding: "2em", width: "70%", borderBottom: "0"}}} >
             <a 
                 href="#infos3" 
                 style={{...selectedLink === 1 && { color: "#1c1b1a", borderBottom: "2px solid #1c1b1a" }}}

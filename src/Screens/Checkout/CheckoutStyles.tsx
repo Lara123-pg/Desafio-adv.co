@@ -105,8 +105,6 @@ export const Section = () => {
         flex-direction: ${sectionStyles.flexDirection};
         gap: ${sectionStyles.gap};
 
-        height: 620px;
-
 
         div.slideImages {
             display: flex;
