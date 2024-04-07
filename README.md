@@ -24,10 +24,11 @@ Logo em seguida, o projeto estará em seu editor para ser executado.
 
 Desafio Adv.co é um desafio que tem o objetivo de testar os conceitos Frontend. E nesse desafio foi feita duas telas, em que estão nos seguintes links:
 
-<div>
-  <a href="https://en.99designs.com.br/categories?section=logo-identity">Categories</a>
-  <a href="https://en.99designs.com.br/brand-identity-pack/details">Checkout</a>
-</div>
+
+<a 
+href="https://en.99designs.com.br/categories?section=logo-identity" target="_blank">Categories</a>
+<br>
+<a href="https://en.99designs.com.br/brand-identity-pack/details" target="_blank">Checkout</a>
 
 ## Link do projeto hospedado
 
