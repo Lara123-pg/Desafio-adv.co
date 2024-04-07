@@ -20,23 +20,23 @@ $ code .  (Abrir o Visual Studio Code)
 
 Logo em seguida, o projeto estará em seu editor para ser executado.
 
-# Projeto
+## Projeto
 
 Desafio Adv.co é um desafio que tem o objetivo de testar os conceitos Frontend. E nesse desafio foi feita duas telas, em que estão nos seguintes links:
 
 <a href="https://en.99designs.com.br/categories?section=logo-identity">Categories</a>
 <a href="https://en.99designs.com.br/brand-identity-pack/details">Checkout</a>
 
-# Link do projeto hospedado
+## Link do projeto hospedado
 
 Link: 
 
-# Autor
+## Autor
 
 Lara Fernanda
 
 Email: lamorimalvescavalcante@gmail.com
 
-# Licença
+## Licença
 
-Este projeto está sob a licença MIT -
+Este projeto está sob a licença MIT - https://github.com/Lara123-pg/Desafio-adv.co/blob/main/LICENSE
