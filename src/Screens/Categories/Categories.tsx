@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, MouseEventHandler } from 'react';
 
 import { OptionMenu } from '../../components/OptionMenu';
 import { Header, H1, Nav, Main, SectionMain, DivGrid, SpanGrid, DivGrid2, DivGrid3, DivGrid4, DivBox2, Flex1, DivBox3, DivBox4, Flex2, Flex4, DivBox5, Flex5, Info } from './CategoriesStyles';
@@ -54,10 +54,22 @@ export function Categories() {
     const [iconCard9, setIconCard9] = useState(true);
     const [iconCard10, setIconCard10] = useState(true);
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-        setXPos(-1200);
+    const handleMouseEnter: MouseEventHandler<HTMLDivElement> = (event) => {
+        const screenWidth = window.innerWidth;
+        const threshold = screenWidth * 0.75;
+
+        const menuElement = document.getElementById("menu-container");
+
+        if (event.clientX > threshold) {
+            setIsHovered(true);
+            setXPos(-1200);
+        } else if (menuElement && event.clientX < window.innerWidth / 4) {
+            setIsHovered(true);
+            setXPos(0);
+        }
     };
+
+    
 
     const handleMouseLeave = () => {
         setIsHovered(false);
@@ -70,21 +82,6 @@ export function Categories() {
           setXPos(latest.x as number);
         } 
     };
-
-    useEffect(() => {
-        const handleMouseMove = (event: MouseEvent) => {
-            const menuElement = document.getElementById("menu-container");
-            if (menuElement && event.clientX < window.innerWidth / 4) {
-                setXPos(0);
-            }
-        };
-
-        document.addEventListener('mousemove', handleMouseMove);
-
-        return () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, []);
     
     const isMobile = useBreakpointValue({ sm: true, md: false });
     const [is500px] = useMediaQuery("(max-width: 500px)");
