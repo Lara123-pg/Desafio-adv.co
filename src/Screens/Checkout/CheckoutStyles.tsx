@@ -1,5 +1,5 @@
-import { theme } from "../../theme";
-import { css } from "@emotion/react";
+import { theme } from '../../theme';
+import { css } from '@emotion/react';
 
 import icon10 from '../../assets/icon10.png';
 
@@ -22,12 +22,12 @@ export const Header = () => {
 
             gap: 0.6em;
 
-            width: 53%;
+            width: 700px;
             justify-content: space-between;
             align-items: center;
         }
 
-        ul, div.phoneLogin {
+        ul, div.phoneLogin, div.menuResponsivo {
             color: #313030;
             font-weight: bold;
         }
@@ -54,6 +54,23 @@ export const Header = () => {
             &:hover {
                 background-color: ${theme.colors.brand.backgroundMainText};
             }
+        }
+
+        div.menuResponsivo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            img.menuButton {
+                width: 20px;
+                height: 20px;
+
+                &: hover {
+                    cursor: pointer;
+                }
+            }
+
         }
     `
 }
@@ -88,11 +105,16 @@ export const Section = () => {
         flex-direction: ${sectionStyles.flexDirection};
         gap: ${sectionStyles.gap};
 
+
         div.slideImages {
             display: flex;
             flex-direction: column;
 
             gap: 1em;
+
+            img {
+                width: 100%;
+            }
         }
 
         div.infos {
@@ -110,6 +132,9 @@ export const Section = () => {
                     background-color: ${theme.colors.brand.boxMenu};
 
                     border-radius: 50px;
+
+                    transition: all 0.3s;
+
 
                     &:hover {
                         cursor: pointer;
@@ -131,28 +156,6 @@ export const Section = () => {
                 }
             }
         }
-
-        div.links {
-            display: flex;
-            gap: 3em;
-
-            position: sticky;
-            top: 0;
-
-            color: ${theme.colors.brand.links};
-            font-weight: bold;
-
-            border-bottom: 1px solid ${theme.colors.brand.boxMenu};
-
-            a {
-                line-height: 2.4em;
-
-                &:hover {
-                    color: ${theme.colors.brand.backgroundButtonInfo};
-                    border-bottom: 2px solid ${theme.colors.brand.backgroundButtonInfo};
-                }
-            }
-        }
     `
 }
 
@@ -162,13 +165,9 @@ export const Aside = () => {
     flexDirection: "column",
     justifyContent: "space-between",
     padding: "2.5em 2em",
-    gap: "1em",
+    gap: "2em",
     border: "1px solid #dad9d7",
-    position: "fixed",
-    right: "0",
-    marginRight: "2em",
     paddingBottom: "2em",
-    marginTop: "-1em",
   }
 
   return css`
@@ -178,9 +177,6 @@ export const Aside = () => {
     padding: ${asideStyles.padding};
     gap: ${asideStyles.gap};
     border: ${asideStyles.border};
-    position: ${asideStyles.position};
-    right: ${asideStyles.right};
-    margin-right: ${asideStyles.marginRight};
     padding-bottom: ${asideStyles.paddingBottom};
    
     color: ${theme.colors.brand.menuCheckout};
@@ -338,6 +334,8 @@ export const Info4 = () => {
             gap: 1em;
 
             padding: 2em;
+
+            border-radius: 10px;
 
             color: ${theme.colors.brand.menuCheckout};
 

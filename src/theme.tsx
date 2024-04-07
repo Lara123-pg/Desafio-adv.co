@@ -13,7 +13,8 @@ export const theme = extendTheme({
       backgroundButtonInfo: '#1c1b1a',
       menuCheckout: '#313030',
       links: '#CECDC6',
-      backgroundCheckout: '#FAF9F7'
+      backgroundCheckout: '#FAF9F7',
+      blur: '#00000080'
     },
   }
 });
