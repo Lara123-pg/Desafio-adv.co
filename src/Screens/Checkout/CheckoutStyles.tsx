@@ -8,6 +8,7 @@ export const Header = () => {
         width: "100%",
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
         padding: "0.9em 3em",
     }
 
@@ -16,6 +17,7 @@ export const Header = () => {
         display: ${headerStyles.display};
         justify-content: ${headerStyles.justifyContent};
         padding: ${headerStyles.padding};
+        align-items: ${headerStyles.alignItems};
 
         div.logoMenu {
             display: flex;
@@ -80,7 +82,6 @@ export const Main = () => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
         padding: "4em 3em",
     }
 
@@ -88,7 +89,6 @@ export const Main = () => {
         width: ${mainStyles.width};
         display: ${mainStyles.display};
         flex-direction: ${mainStyles.flexDirection};
-        justify-content: ${mainStyles.justifyContent};
         padding: ${mainStyles.padding};
     `
 }
@@ -104,6 +104,8 @@ export const Section = () => {
         display: ${sectionStyles.display};
         flex-direction: ${sectionStyles.flexDirection};
         gap: ${sectionStyles.gap};
+
+        height: 620px;
 
 
         div.slideImages {
@@ -180,6 +182,9 @@ export const Aside = () => {
     padding-bottom: ${asideStyles.paddingBottom};
    
     color: ${theme.colors.brand.menuCheckout};
+
+    position: sticky;
+    top: 0;
 
     p {
         font-size: 1.1em;

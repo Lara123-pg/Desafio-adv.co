@@ -47,8 +47,31 @@ export function Checkout() {
         };
     }, [clickMenu]);
 
+    const [isAsideFixed, setIsAsideFixed] = useState<boolean>(false);
+
+    useEffect(() => {
+        function handleScroll() {
+            const aside = document.querySelector('.aside') as HTMLElement; 
+            if (aside) {
+                const asideOffsetTop = aside.offsetTop;
+                const scrollY = window.scrollY;
+             
+                if (scrollY >= asideOffsetTop) {
+                    setIsAsideFixed(true);
+                } else {
+                    setIsAsideFixed(false);
+                }
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return(
-        <div className="Checkout" style={{ width: "100vw", backgroundColor: '#ffff', position: "relative" }}>
+        <div style={{ width: "100vw", backgroundColor: '#ffff', position: "relative" }}>
             <Box as="header" css={Header}>
                 {
                     is1038px ? (
@@ -144,7 +167,7 @@ export function Checkout() {
 
                     {
                         !is950px && (
-                            <Box as="aside" css={Aside}>
+                            <Box as="aside" className="aside" style={{...isAsideFixed && { position: "fixed", top: "0", right: "0", marginTop: "1em", marginRight: "2em"}}} css={Aside}>
                                 <Heading as="h1" size="lg">Logo & brand identity pack</Heading>
         
                                 <p>Starting from $599</p>
@@ -167,7 +190,8 @@ export function Checkout() {
                     }
                 </Flex>
 
-                <Box className="infosLinks" css={Section2} style={{...is950px && { width: "100%" }}}>
+                <div className="infosLinks" style={{ width: "100%", alignSelf: "start" }}>
+                    <Box as="div" css={Section2} style={{...is950px && { width: "100%" }}}>
                       <div className="infosLink">
                         <Box as="div" className="infos2" css={Info2} style={{...is950px && { borderBottom: "0" } }}>
                             <Heading as="strong" size="lg">Branding as unique as your business.</Heading>
@@ -241,8 +265,9 @@ export function Checkout() {
                                 </Box>
                             )
                         }
-                    </div> 
-                </Box>
+                        </div>
+                    </Box> 
+                </div>
             </Box>
 
             <div style={{...clickMenu && { position:"absolute", top: "0", backgroundColor: "rgba(0,0,0, 0.5)", width: "100%", height: "100vh" } }}></div>
