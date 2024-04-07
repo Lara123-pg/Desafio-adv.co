@@ -121,6 +121,10 @@ export const Flex1 = () => {
 
   return css`
     width: ${flexStyles.width};
+
+    position: relative;
+
+    z-index: 1;
   `
 }
 
@@ -147,8 +151,6 @@ export const DivGrid = () => {
 
     padding: 2em;
 
-    z-index: 1;
-
     &:hover {
       box-shadow: 0 7px 21px 0 rgba(0,0,0,.1);
       -webkit-transform: scale(1.05,1.05);
@@ -158,7 +160,7 @@ export const DivGrid = () => {
       color: #01A1C1;
       cursor: pointer;
 
-      z-index: 6;
+      z-index: 2;
     }
   `
 }
@@ -237,7 +239,7 @@ export const DivGrid3 = () => {
     }
 
     span {
-      width: 130px;
+      width: 110px;
       border: 1px solid #01A1C1;
       color: #01A1C1;
 
@@ -299,8 +301,6 @@ export const DivBox2 = () => {
 
     padding: 2em;
 
-    z-index: 1;
-
     &:hover {
       box-shadow: 0 7px 21px 0 rgba(0,0,0,.1);
       -webkit-transform: scale(1.05,1.05);
@@ -310,7 +310,8 @@ export const DivBox2 = () => {
       color: #01A1C1;
       cursor: pointer;
 
-      z-index: 6;
+      z-index: 1;
+
     }
 
     img {
@@ -362,7 +363,6 @@ export const DivBox3 = () => {
       -webkit-transform: scale(1.05,1.05);
       transform: scale(1.05,1.05)
       transition-duration: .3s;
-
       color: #01A1C1;
       cursor: pointer;
 
@@ -450,7 +450,7 @@ export const DivBox4 = () => {
         color: #5B5A58;
 
         span {
-          width: 160px;
+          width: 150px;
           color: #01A1C1;
           border: 1px solid #01A1C1;
 
