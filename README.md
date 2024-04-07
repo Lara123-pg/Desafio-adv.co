@@ -1,14 +1,14 @@
 # Desafio Adv.co
 
 
-# Tecnologias
+## Tecnologias
 
 <ul>
     <li>React JS</li>
     <li>Chakcra UI</li>
 </ul>
 
-# Como executar
+## Como executar
 
 Clone o projeto em seu dispositivo e acesse a pasta do mesmo.
 
