@@ -69,8 +69,6 @@ export function Categories() {
         }
     };
 
-    
-
     const handleMouseLeave = () => {
         setIsHovered(false);
         setLastXPos(xPos);
@@ -427,9 +425,17 @@ export function Categories() {
                             </Button>
                         </div>
                         
-                        <div className="imageInfo" style={{...isMobile && {flexDirection: 'column-reverse'}}}>
-                            <p style={{ color: "#5B5A58", textAlign: 'center' }}>Illustration by wildanya</p>
-                            <img src={image2} alt="Girl viewing information screen" />
+                        <div 
+                            className="imageInfo" 
+                            style={{...isMobile && {flexDirection: 'column', display: "flex"}}}
+                        >
+                            <p 
+                                style={{...isMobile ? {order: 2 , color: "#5B5A58", textAlign: 'center', paddingTop: "1em" }
+                                :{ color: "#5B5A58", textAlign: 'center' }}}
+                            >
+                                Illustration by wildanya
+                            </p>
+                            <img style={{...isMobile && { order: 1 }}} src={image2} alt="Girl viewing information screen" />
                         </div>
                     </div>
                 </Box>

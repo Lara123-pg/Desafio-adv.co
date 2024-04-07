@@ -237,11 +237,13 @@ export const DivGrid3 = () => {
     }
 
     span {
-      width: 100px;
+      width: 130px;
       border: 1px solid #01A1C1;
       color: #01A1C1;
 
-      padding: 1px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       font-size: 0.9rem;
     }
@@ -448,11 +450,13 @@ export const DivBox4 = () => {
         color: #5B5A58;
 
         span {
-          width: 120px;
+          width: 160px;
           color: #01A1C1;
           border: 1px solid #01A1C1;
 
-          padding: 1px 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
