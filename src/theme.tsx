@@ -11,6 +11,9 @@ export const theme = extendTheme({
       descriptionOptions: '#5B5A58',
       backgroundInfo: '#f3f2f0',
       backgroundButtonInfo: '#1c1b1a',
+      menuCheckout: '#313030',
+      links: '#CECDC6',
+      backgroundCheckout: '#FAF9F7'
     },
   }
 });
