@@ -11,7 +11,7 @@ interface OptionMenuProps {
     isFirstButton?: boolean;
     styleButton?: boolean;
 }
-export function OptionMenu({ children, icon, isFirstButton, styleButton, ...props }: OptionMenuProps) {
+export function OptionMenu({ children, icon, isFirstButton, styleButton, ...props }: OptionMenuProps){
     return(
         <Button 
             as="button" 

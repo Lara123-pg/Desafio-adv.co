@@ -1,10 +1,9 @@
-import { Categories } from "./Screens/Categories/Categories";
-import { Checkout } from "./Screens/Checkout/Checkout";
+import { AppRoutes } from "./Routes/Routes";
 
 export function App() {
   return (
     <div>
-      <Checkout />
+      <AppRoutes />
     </div>
   )
 }
